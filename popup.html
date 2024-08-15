@@ -8,7 +8,13 @@
 </head>
 <body>
   <div class="container">
-    <input type="text" id="inputText" placeholder="Zadej kód produktu" autofocus>
+    <div class="input-container">
+      <input type="text" id="inputText" placeholder="Zadej kód produktu" autofocus>
+      <div class="icon-buttons">
+        <button id="btnKeep" class="toggle-btn"><img id="imgKeep" src="icons/keep_off.png" alt="Keep"></button>
+        <button id="btnOpen" class="toggle-btn"><img id="imgOpen" src="icons/open_off.png" alt="Open"></button>
+      </div>
+    </div>
     <div class="buttons">
       <button id="btnCZ">CZ</button>
       <button id="btnSK">SK</button>

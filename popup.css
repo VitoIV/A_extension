@@ -15,13 +15,49 @@ body {
   text-align: center;
 }
 
+.input-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
 input {
   padding: 10px;
+  padding-right: 60px; /* Rezerva pro tlačítka */
   margin-bottom: 15px;
-  width: calc(100% - 22px);
+  width: 100%;
   border: 1px solid #ddd;
   border-radius: 5px;
   font-size: 14px;
+}
+
+.icon-buttons {
+  position: absolute;
+  right: 5px;
+  top: 35%;
+  transform: translateY(-50%);
+  padding-right: 5px;
+}
+
+.toggle-btn {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.toggle-btn.on {
+  background-color: #81C784; /* zelená */
+}
+
+.toggle-btn.off {
+  background-color: #E57373; /* červená */
+}
+
+.toggle-btn img {
+  width: 20px;
+  height: 20px;
 }
 
 .buttons {
@@ -45,8 +81,4 @@ button {
 
 button:hover {
   background-color: #0056b3;
-}
-
-button:not(:last-child) {
-  margin-right: 5px;
 }
