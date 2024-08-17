@@ -249,7 +249,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.body.appendChild(notification);
   
     document.getElementById('closeNotification').addEventListener('click', function() {
-      if (confirm('Opravdu už nechcete tuto zprávu zobrazovat?')) {
+      if (confirm('Opravdu už nechcete tuto zprávu zobrazovat? \nDalší aktualizace bude třeba provést manuálně.')) {
         localStorage.setItem('hideUpdateNotification', 'true');
         notification.remove();
       }
