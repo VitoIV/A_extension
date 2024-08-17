@@ -4,6 +4,15 @@
   <meta charset="UTF-8">
   <title>Alza Redirector</title>
   <script src="popup.js"></script>
+  <script>
+    fetch(chrome.runtime.getURL('manifest.json'))
+      .then(response => response.json())
+      .then(manifest => {
+        const currentVersion = manifest.version;
+        checkForNewVersion(currentVersion);
+      })
+      .catch(error => console.error('Error fetching manifest:', error));
+  </script>
   <link rel="stylesheet" type="text/css" href="popup.css">
 </head>
 <body>
@@ -28,5 +37,14 @@
       <button id="btnP">P</button>
     </div>
   </div>
+  <script>
+    fetch(chrome.runtime.getURL('manifest.json'))
+      .then(response => response.json())
+      .then(manifest => {
+        const currentVersion = manifest.version;
+        checkForNewVersion(currentVersion);
+      })
+      .catch(error => console.error('Error fetching manifest:', error));
+  </script>
 </body>
 </html>

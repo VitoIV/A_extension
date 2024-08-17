@@ -205,3 +205,44 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 });
+
+async function checkForNewVersion(currentVersion) {
+  try {
+    const response = await fetch('https://api.github.com/repos/VitoIV/A_extension/releases/latest');
+    const data = await response.json();
+    const latestVersion = data.tag_name;
+
+    console.log(`Current version: ${currentVersion}, Latest version: ${latestVersion}`);
+
+    if (latestVersion !== currentVersion) {
+      displayUpdateNotification(latestVersion);
+    }
+  } catch (error) {
+    console.error('Error fetching the latest version:', error);
+  }
+}
+
+function displayUpdateNotification(latestVersion) {
+  const notification = document.createElement('div');
+  notification.className = 'update-notification';
+  notification.innerHTML = `
+    <p>Je k dispozici nová verze! <a href="https://github.com/VitoIV/A_extension/archive/refs/tags/${latestVersion}.zip" target="_blank">Stáhnout</a> | <a href="https://github.com/VitoIV/A_extension" target="_blank">GitHub</a> | <a href="#" id="closeNotification">Zavřít</a></p>
+  `;
+  
+  document.body.appendChild(notification);
+
+  document.getElementById('closeNotification').addEventListener('click', function() {
+    if (confirm('Opravdu už nechcete tuto zprávu zobrazovat?')) {
+      localStorage.setItem('hideUpdateNotification', 'true');
+      notification.remove();
+    }
+  });
+}
+
+// Kontrola, jestli uživatel nechtěl skrytí upozornění
+const hideNotification = localStorage.getItem('hideUpdateNotification') === 'true';
+
+if (!hideNotification) {
+  // Funkce checkForNewVersion bude volána až po načtení verze z manifestu v popup.html
+}
+
