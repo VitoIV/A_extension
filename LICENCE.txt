@@ -1,0 +1,9 @@
+Copyright VisioNet 2024
+
+All rights reserved.
+
+This software is proprietary and confidential. Unauthorized copying, modification, use, or distribution of this software, via any medium, is strictly prohibited.
+
+Permission to use, copy, modify, or distribute this software must be explicitly granted by VisioNet.
+
+If you have not been granted explicit permission by the copyright holder, you are not authorized to use, copy, modify, or distribute this software in any form.
