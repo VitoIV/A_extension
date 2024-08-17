@@ -210,7 +210,11 @@ async function checkForNewVersion(currentVersion) {
   try {
     const response = await fetch('https://api.github.com/repos/VitoIV/A_extension/releases/latest');
     const data = await response.json();
-    const latestVersion = data.tag_name;
+    let latestVersion = data.tag_name;
+
+    if (latestVersion.startsWith('v')) {
+      latestVersion = latestVersion.substring(1);
+    }
 
     console.log(`Current version: ${currentVersion}, Latest version: ${latestVersion}`);
 
@@ -239,10 +243,8 @@ function displayUpdateNotification(latestVersion) {
   });
 }
 
-// Kontrola, jestli uživatel nechtěl skrytí upozornění
 const hideNotification = localStorage.getItem('hideUpdateNotification') === 'true';
 
 if (!hideNotification) {
-  // Funkce checkForNewVersion bude volána až po načtení verze z manifestu v popup.html
 }
 
