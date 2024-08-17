@@ -204,47 +204,60 @@ document.addEventListener('DOMContentLoaded', function() {
       alert('První zadej kód produktu.');
     }
   }
-});
 
-async function checkForNewVersion(currentVersion) {
-  try {
-    const response = await fetch('https://api.github.com/repos/VitoIV/A_extension/releases/latest');
-    const data = await response.json();
-    let latestVersion = data.tag_name;
+  fetch(chrome.runtime.getURL('version.txt'))
+    .then(response => response.text())
+    .then(currentVersion => {
+      currentVersion = currentVersion.trim();
+      checkForNewVersion(currentVersion);
+    })
+    .catch(error => console.error('Error fetching version.txt:', error));
 
-    if (latestVersion.startsWith('v')) {
-      latestVersion = latestVersion.substring(1);
+    async function checkForNewVersion(currentVersion) {
+      try {
+        const response = await fetch('https://api.github.com/repos/VitoIV/A_extension/releases/latest');
+        const data = await response.json();
+        let latestVersion = data.tag_name;
+    
+        if (latestVersion.startsWith('v')) {
+          latestVersion = latestVersion.substring(1);
+        }
+    
+        console.log(`Current version: ${currentVersion}, Latest version: ${latestVersion}`);
+    
+        if (latestVersion !== currentVersion) {
+          displayUpdateNotification(latestVersion);
+        }
+      } catch (error) {
+        console.error('Error fetching the latest version:', error);
+      }
     }
+    
 
-    console.log(`Current version: ${currentVersion}, Latest version: ${latestVersion}`);
-
-    if (latestVersion !== currentVersion) {
-      displayUpdateNotification(latestVersion);
-    }
-  } catch (error) {
-    console.error('Error fetching the latest version:', error);
-  }
-}
-
-function displayUpdateNotification(latestVersion) {
-  const notification = document.createElement('div');
-  notification.className = 'update-notification';
-  notification.innerHTML = `
-    <p>Je k dispozici nová verze! <a href="https://github.com/VitoIV/A_extension/archive/refs/tags/${latestVersion}.zip" target="_blank">Stáhnout</a> | <a href="https://github.com/VitoIV/A_extension" target="_blank">GitHub</a> | <a href="#" id="closeNotification">Zavřít</a></p>
-  `;
+  function displayUpdateNotification(latestVersion) {
+    const notification = document.createElement('div');
+    notification.className = 'update-notification';
+    notification.innerHTML = `
+      <p>Je k dispozici nová verze!</p>
+      <div class="button-group">
+        <a href="https://github.com/VitoIV/A_extension/archive/refs/tags/v${latestVersion}.zip" target="_blank">Stáhnout</a>
+        <a href="https://github.com/VitoIV/A_extension" target="_blank">GitHub</a>
+        <a href="#" id="closeNotification">Zavřít</a>
+      </div>
+    `;
   
-  document.body.appendChild(notification);
+    document.body.appendChild(notification);
+  
+    document.getElementById('closeNotification').addEventListener('click', function() {
+      if (confirm('Opravdu už nechcete tuto zprávu zobrazovat?')) {
+        localStorage.setItem('hideUpdateNotification', 'true');
+        notification.remove();
+      }
+    });
+  }
 
-  document.getElementById('closeNotification').addEventListener('click', function() {
-    if (confirm('Opravdu už nechcete tuto zprávu zobrazovat?')) {
-      localStorage.setItem('hideUpdateNotification', 'true');
-      notification.remove();
-    }
-  });
-}
+  const hideNotification = localStorage.getItem('hideUpdateNotification') === 'true';
 
-const hideNotification = localStorage.getItem('hideUpdateNotification') === 'true';
-
-if (!hideNotification) {
-}
-
+  if (!hideNotification) {
+  }
+});

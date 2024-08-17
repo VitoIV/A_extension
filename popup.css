@@ -82,3 +82,48 @@ button {
 button:hover {
   background-color: #0056b3;
 }
+
+.update-notification {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.update-notification p {
+  text-align: center;
+  font-weight: bold;
+}
+
+.update-notification a {
+  color: blue;
+  font-weight: normal;
+  text-decoration: none;
+  margin-right: 10px;
+  text-align: center;
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.update-notification a:hover {
+  text-decoration: underline;
+}
+
+.update-notification .button-group {
+  margin-top: 5px;
+}
+
+.update-notification .button-group a {
+  display: inline-block;
+  background-color: #007bff;
+  color: white;
+  padding: 5px 10px;
+  margin: 2px 0;
+  border-radius: 3px;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.update-notification .button-group a:hover {
+  background-color: #0056b3;
+}
+
