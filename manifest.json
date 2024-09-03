@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Alza Redirector",
-  "version": "1.2.0",
+  "version": "1.2.3",
   "description": "Open Alza codes.",
   "permissions": ["activeTab", "tabs", "scripting", "storage"],
   "content_security_policy": {
