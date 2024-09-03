@@ -48,11 +48,11 @@ input {
 }
 
 .toggle-btn.on {
-  background-color: #81C784; /* zelená */
+  background-color: transparent
 }
 
 .toggle-btn.off {
-  background-color: #E57373; /* červená */
+  background-color: transparent
 }
 
 .toggle-btn img {
@@ -127,3 +127,18 @@ button:hover {
   background-color: #0056b3;
 }
 
+.toggle-btn.on img {
+  filter: brightness(0) saturate(100%) invert(32%) sepia(91%) saturate(566%) hue-rotate(85deg) brightness(92%) contrast(91%);
+}
+
+.toggle-btn.off img {
+  filter: brightness(0) saturate(100%) invert(36%) sepia(77%) saturate(3807%) hue-rotate(356deg) brightness(97%) contrast(97%);
+}
+
+button.disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  border: 1px solid #aaaaaa;
+  color: #666666;
+}
+ 
