@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Obsahovka.eu gadget",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "Rozšíření umožňuje uživatelům rychlé přesměrování na stránky e-shopu na základě zadaného produktového kódu. Uživatel zadá kód do rozhraní rozšíření, které ho automaticky přesměruje na odpovídající produktovou stránku daného webu nebo jeho jazykové verze (SK, DE, AT, HU).",
   "permissions": ["activeTab", "tabs"],
   "content_security_policy": {
@@ -19,6 +19,5 @@
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
-  },
-    "update_url": "https://alza.visio-net.eu/extension/updates.xml"
+  }
 }
