@@ -1,12 +1,23 @@
 {
   "manifest_version": 3,
   "name": "Obsahovka.eu gadget",
-  "version": "1.2.6",
-  "description": "Rozšíření umožňuje uživatelům rychlé přesměrování na stránky e-shopu na základě zadaného produktového kódu. Uživatel zadá kód do rozhraní rozšíření, které ho automaticky přesměruje na odpovídající produktovou stránku daného webu nebo jeho jazykové verze (SK, DE, AT, HU).",
-  "permissions": ["activeTab", "tabs"],
+  "version": "1.3.0",
+  "description": "Rozšíření umožňuje uživatelům rychlé přesměrování na stránky e-shopu na základě zadaného kódu nebo kategorie. Umožňuje i nastavení vlastních klávesových zkratek pro každé tlačítko.",
+  "permissions": ["activeTab", "tabs", "storage"],
+  "host_permissions": [
+    "https://alza.cz/*",
+    "https://alza.sk/*",
+    "https://alza.de/*",
+    "https://alza.at/*",
+    "https://alza.hu/*",
+    "https://adminv2.alza.cz/*"
+  ],
   "content_security_policy": {
     "extension_pages": "script-src 'self'; object-src 'self';"
   },
+
+  "incognito": "split",
+
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
@@ -15,6 +26,12 @@
       "128": "icons/icon128.png"
     }
   },
+
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",

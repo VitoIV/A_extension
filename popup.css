@@ -23,7 +23,7 @@ body {
 
 input {
   padding: 10px;
-  padding-right: 60px; /* Rezerva pro tlačítka */
+  padding-right: 60px;
   margin-bottom: 15px;
   width: 100%;
   border: 1px solid #ddd;
@@ -58,6 +58,40 @@ input {
 .toggle-btn img {
   width: 20px;
   height: 20px;
+}
+
+.wiki-btn {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  background-color: transparent;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.wiki-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+.wiki-btn:hover,
+.wiki-btn:focus {
+  background: none;
+  outline: none;
+}
+
+.wiki-btn:hover img,
+.wiki-btn:focus img {
+  opacity: 1; 
+  filter: none;
 }
 
 .buttons {
