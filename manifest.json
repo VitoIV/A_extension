@@ -4,14 +4,7 @@
   "version": "1.3.0",
   "description": "Rozšíření umožňuje uživatelům rychlé přesměrování na stránky e-shopu na základě zadaného kódu nebo kategorie. Umožňuje i nastavení vlastních klávesových zkratek pro každé tlačítko.",
   "permissions": ["activeTab", "tabs", "storage"],
-  "host_permissions": [
-    "https://alza.cz/*",
-    "https://alza.sk/*",
-    "https://alza.de/*",
-    "https://alza.at/*",
-    "https://alza.hu/*",
-    "https://adminv2.alza.cz/*"
-  ],
+
   "content_security_policy": {
     "extension_pages": "script-src 'self'; object-src 'self';"
   },
